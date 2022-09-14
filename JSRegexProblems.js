@@ -159,3 +159,24 @@ const prompt = require("prompt-sync")();  // For Taking input from user
         console.error(e);
     }
 }
+
+/* UC 8: Lets handle optional part i.e. xyz in abc.xyz@bridgelabz.co.in
+NOTE: make sure only following are valid special characters _,+,-,. proceeding to xyz */
+{
+    console.log("\n***** UC8 Ex:- abc-xyz@bridgelabz.co.in *****");
+    let emailId = prompt("Enter your email id: ");  // ex:- abc-xyz@bridgelabz.co.any 
+
+    try {
+        //regex pattern for email id
+        let emailPattern = new RegExp("^(abc)[\. _ + -]{1}[a-z]{3,}[@](bridgelabz).?(co).?[a-z]{2,}$");
+        //test email id with pattern
+        if (emailPattern.test(emailId))
+            console.log('Email id is valid');
+        else
+            throw 'Error! Email id is not valid';
+    }
+    catch (e) {
+        //catch the error and print it
+        console.error(e);
+    }
+}
